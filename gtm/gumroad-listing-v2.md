@@ -136,7 +136,7 @@ AI gets things wrong sometimes — section numbers, case law citations, due date
 
 ### Questions?
 
-DM us on [CONTACT METHOD]. We'll respond within 24 hours.
+Email us at ai.playbook.editorial@gmail.com. We'll respond within 24 hours.
 
 ---
 

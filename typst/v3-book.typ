@@ -24,7 +24,7 @@
 )
 
 #set text(font: "Cormorant Garamond", size: 12pt, fill: mid, lang: "en")
-#set par(leading: 0.9em, justify: true, spacing: 2em)
+#set par(leading: 0.9em, justify: true, spacing: 1.2em)
 
 #show heading.where(level: 1): it => {
   pagebreak(weak: true)
@@ -38,9 +38,9 @@
 }
 
 #show heading.where(level: 2): it => {
-  v(0.8cm)
+  v(0.6cm)
   text(font: "Cormorant Garamond", size: 16pt, weight: "bold", fill: dark)[#it.body]
-  v(0.25cm)
+  v(0.15cm)
 }
 
 #show heading.where(level: 3): it => {
@@ -163,10 +163,9 @@
     v(0.5cm)
   }
 
-  #ch("  ", "Your First Week", "A day-by-day getting started guide", "")
-
-  #app("App. 1", "5 Full Skills + 15 Ideas", "")
-  #app("App. 2", "50 Prompts", "")
+  #app("App. 1", "Your First Week", "")
+  #app("App. 2", "5 Full Skills + 15 Ideas", "")
+  #app("App. 3", "50 Prompts", "")
 ]
 
 // ── CONTENT ──
@@ -192,7 +191,7 @@ Read this opening and Chapter 1 first — they give you the foundation. After th
 
 Filing season approaching and you're drowning? Go straight to Chapter 3. Client emails are your bottleneck? Chapter 4. Want to connect AI to Tally or Zoho? Chapter 5. Need to get your team using this? Chapter 7.
 
-The appendices are reference material. Appendix 1 has ready-made skills you can start using immediately. Appendix 2 has 50 prompts you can copy-paste right away. Dip into them when you need a specific prompt or workflow — don't try to read them cover to cover.
+The appendices are reference material. Appendix 2 has ready-made skills you can start using immediately. Appendix 3 has 50 prompts you can copy-paste right away. Dip into them when you need a specific prompt or workflow — don't try to read them cover to cover.
 #line(length: 100%, stroke: 0.4pt + rgb("#E2E8F0"))
 = Chapter 1: The Two Tools You Actually Need
 
@@ -514,22 +513,22 @@ Skills aren't documents you store in Google Drive or print on a cheat sheet. The
 Next time you need that workflow, just open your Custom GPT and start chatting.
 === Creating a Skill in Claude
 
-A Claude "Skill" is essentially a Project configured for a specific repeatable task. Here's how to create one:
+A Claude "Skill" is essentially a custom connector configured for a specific repeatable task. Here's how to create one:
 
 + Go to claude.ai and log in
-+ Click "Projects" in the left sidebar
-+ Click "Create a new Project"
++ Go to *Settings* → *Connectors* → *Customize*
++ Under *Connectors*, click *Add custom connector*
 + Name it clearly — e.g., "GST 2B Reconciler" or "ITR Summary Drafter"
-+ Write your skill instructions in the Project's *system prompt / instructions field* — this is where you define what the AI should do, the output format, and any standing context
++ Write your skill instructions in the connector's instructions field — this is where you define what the AI should do, the output format, and any standing context
 + Upload any reference files the skill needs (templates, checklists, rate tables)
-+ Start a conversation inside this Project to test it
-Every time you open this Project and start a new conversation, Claude already has the instructions and reference files loaded. It behaves like a specialised tool — no re-explaining needed.
++ Start a conversation to test it
+Every time you invoke this connector in a conversation, Claude already has the instructions and reference files loaded. It behaves like a specialised tool — no re-explaining needed.
 == Building Your First Skill
 
 Here's a complete example — a GST reconciliation skill — shown in both formats:
 === Claude Format (Project Instructions)
 
-Paste this into a Claude Project's instructions field:
+Paste this into a Claude custom connector's instructions field:
 #quote-block[When I upload two files — a GSTR-2B download (Excel/CSV) and a purchase register from Tally or Zoho (Excel/CSV) — do the following:
 
 1. Match invoices by supplier GSTIN + invoice number
@@ -582,7 +581,7 @@ Here's the honest picture on sharing:
 - *Claude Projects/Skills* sharing requires a Team plan. On Claude's Team plan, Projects are visible to all team members. On individual or free plans, there's no built-in sharing mechanism — you'd need to copy the instructions text and send it to a colleague to paste into their own Project. It works, but it's manual.
 If your firm has a Team plan on either platform, collaboration is seamless. On individual plans, ChatGPT has the edge on sharing thanks to Custom GPT links. The honest truth: team plans (roughly ₹1,700/month per person) make collaboration significantly easier. If your firm has 3+ people using AI regularly, the team plan pays for itself.
 
-Appendix 1 has 5 detailed starter skills ready to copy-paste, plus 15 more ideas to build. Start there and customise to fit your practice.
+Appendix 2 has 5 detailed starter skills ready to copy-paste, plus 15 more ideas to build. Start there and customise to fit your practice.
 #line(length: 100%, stroke: 0.4pt + rgb("#E2E8F0"))
 = Chapter 7: Getting Your Team On Board
 
@@ -658,12 +657,12 @@ Specific areas where AI commonly makes errors in Indian tax context:
 - *Rate changes* — GST rates, surcharge thresholds, and cess amounts change frequently. Cross-check with official notifications.
 None of these are deal-breakers. You'd verify these things anyway if an article clerk drafted them. The difference is the AI draft arrives in 30 seconds instead of 30 minutes.
 #line(length: 100%, stroke: 0.4pt + rgb("#E2E8F0"))
-= Your First Week — Day by Day
+= Appendix 1: Your First Week — Day by Day
 
 If you've read this far and haven't tried anything yet, here's a structured plan for your first five days. Each task takes under 15 minutes.
 === Day 1: Set Up Your Workspace
 
-Open Claude (claude.ai) or ChatGPT (chatgpt.com) — whichever you prefer. Create a free account if you haven't. Go to Projects and create one called '[Your Firm Name] — General.' Copy the firm profile template from Chapter 2, edit it with your details, and paste it into the Project instructions. This takes 10 minutes and immediately makes every conversation more useful.
+Open Claude (claude.ai) or ChatGPT (chatgpt.com) — whichever you prefer. Create a free account if you haven't. On Claude, go to Settings → Connectors → Customize → Add custom connector and create one called '[Your Firm Name] — General.' On ChatGPT, go to Projects and create one. Copy the firm profile template from Chapter 2, edit it with your details, and paste it into the instructions. This takes 10 minutes and immediately makes every conversation more useful.
 === Day 2: Draft Your First Email
 
 Think of a client email you need to send today. Instead of writing it from scratch, open your Project and describe what you need: the client's situation, what you want to communicate, and the tone. Review the AI's draft. Edit what needs editing. Send it. Track how long this took versus your usual process. Most people save 10-15 minutes on their very first email.
@@ -678,7 +677,7 @@ Take the most recent CBDT circular or GST notification. Paste it into the AI and
 Look back at the prompts you used this week. Which one would you use again? Take that prompt and turn it into a reusable tool — a Custom GPT on ChatGPT or a Project/Skill on Claude (Chapter 6 has step-by-step instructions for both). Give it a clear name and save it. You now have a reusable workflow that any team member can access. That's the foundation of your AI-powered practice.
 #callout(emoji: "🎯")[By the end of five days, you'll have: a personalised AI workspace, at least one reusable skill or Custom GPT, first-hand experience with AI-drafted communication, and a clear sense of where AI saves you time — and where it doesn't. The total investment: zero rupees and about an hour of experimentation spread across a week.]
 #line(length: 100%, stroke: 0.4pt + rgb("#E2E8F0"))
-= Appendix 1: Starter Skills for CA Firms
+= Appendix 2: Starter Skills for CA Firms
 
 Below are 5 fully detailed skills in proper format. Each includes the Claude Skill (SKILL.md format for Claude Projects) and the Custom GPT equivalent (for ChatGPT). Copy-paste directly into your platform of choice.
 
@@ -1039,7 +1038,7 @@ Build these as your skill library grows. Each follows the same pattern: YAML fro
 + *NRI Tax Advisor* — Determines residential status and applicable tax treatment for NRI clients
 + *Capital Gains Calculator* — Computes LTCG/STCG for equity, debt, and property with indexation
 + *Compliance Calendar Briefing* — Weekly summary of upcoming statutory deadlines with action items
-= Appendix 2: 50 Ready-to-Use Prompts
+= Appendix 3: 50 Ready-to-Use Prompts
 
 Copy any prompt below. Paste it into Claude or ChatGPT. Fill in the parts in [SQUARE BRACKETS] with your specifics. Press Enter. Edit the output as needed. Most prompts work with free-tier Claude or ChatGPT.
 #line(length: 100%, stroke: 0.4pt + rgb("#E2E8F0"))
@@ -1749,5 +1748,22 @@ Check for:
 Give me specific suggestions, not general praise. If it's good, say so briefly and move on.]
 #line(length: 100%, stroke: 0.4pt + rgb("#E2E8F0"))
 
-_End of Appendix 2._ Start with the prompts that match your immediate needs. As you get comfortable, convert the ones you use most often into Custom GPTs or Claude Skills (Chapter 6) so you never have to copy-paste them again.
-#line(length: 100%, stroke: 0.4pt + rgb("#E2E8F0"))
+_End of Appendix 3._ Start with the prompts that match your immediate needs. As you get comfortable, convert the ones you use most often into Custom GPTs or Claude Skills (Chapter 6) so you never have to copy-paste them again.
+
+#pagebreak()
+#v(3cm)
+#align(center)[
+  #rect(width: 2.5cm, height: 3pt, fill: accent)
+  #v(1cm)
+  #text(font: "Cormorant Garamond", size: 22pt, weight: "bold", fill: dark)[Questions, feedback, or corrections?]
+  #v(0.6cm)
+  #text(size: 12pt, fill: mid)[Drop us a line — we read every message.]
+  #v(0.8cm)
+  #text(font: "JetBrains Mono", size: 13pt, fill: accent, weight: "bold")[ai.playbook.editorial\@gmail.com]
+  #v(2cm)
+  #line(length: 40%, stroke: 0.4pt + rule-col)
+  #v(0.8cm)
+  #text(size: 11pt, fill: muted, style: "italic")[Found this useful? Share it with a fellow CA.#linebreak()The best recommendation is a WhatsApp forward.]
+  #v(3cm)
+  #text(size: 9pt, fill: muted)[© 2026 · The AI Playbook for Indian CA Firms]
+]
